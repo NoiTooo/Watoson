@@ -1,0 +1,63 @@
+* {
+   margin: 0;
+   padding: 0; /* 全てのプロパティの余白とパディングをリセットしています。*/
+}
+a{
+  text-decoration: none;
+}
+body{
+  font-family: century,sans-serif;
+  height: 1600px;
+  margin: 0 auto;
+  background-color: #f2f2f2;
+  position: relative;
+  z-index: 300;
+}
+
+header{
+  height: 60px;
+  background-color: #76BABA;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .5);
+  position: relative;
+  z-index: 300;
+}
+.header{
+  width: 1080px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.logo{
+  width: 300px;
+  height: 50px;
+  margin: 5px;
+  float: left;
+
+  border: 1px solid black;
+}
+.header-nav{
+  float: right;
+  margin: 5px 0;
+}
+.nav-module{
+  display: inline-block;
+  text-align: center;
+  margin: 2px 30px;
+
+  position: relative;
+  z-index: 2;
+
+}
+.header-nav-character{
+  font-size: 12px;
+  font-weight: bold;
+  color: #FFFFFF;
+  margin: 0;
+}
+main{
+  background-color: #fff;
+  width: 1080px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  height: 1600px;
+}

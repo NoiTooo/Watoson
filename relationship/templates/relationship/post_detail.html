@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<p>投稿者：{{ objects.author }} <a href="{% url 'relationship:user_profile' objects.author.pk %}">プロフィール</a></p>
+
+{% if owner != objects.author.account_name %}
+  <form method="post">
+    {% csrf_token %}
+    <button action="" type="submit" name="follow" value="{{ objects.author.account_name }}">FOLLOW</button>
+  </form>
+{% endif %}
+
+<p>投稿内容：{{ objects.content }}</p>
+<p>投稿日：{{ objects.date_posted }}</p>
+
+<a href="{% url 'relationship:post_update' object.pk %}">記事を編集する</a>
+
+<form method="POST">
+  {% csrf_token %}
+</form>
+<hr>
+  {% for comment in comments %}
+  {{ comment.content }}
+  {% endfor %}
+<hr>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form }}
+  <button type="submit" name="comment">SEND</button>
+</form>
+
+</body>
+</html>

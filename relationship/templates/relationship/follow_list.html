@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+フォロー中ユーザー：{{ follow_user_count }}人
+<hr>
+{% for follow_user in follow_users %}
+  {{ follow_user.follow_user.account_name }}
+{% endfor %}
+</body>
+</html>

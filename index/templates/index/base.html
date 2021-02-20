@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type='text/css' href="{% static 'index/css/base.css' %}">
+  {% block head %}{% endblock head%}
+  <title>EricProject</title>
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+      <div class="header">
+        <a class="logo">ERIC PROJECT</a>
+        <nav class="header-nav">
+          <div class="nav-module">
+            <a>
+              <img src="{% static 'index/img/home.png'%}" style="height:30px;" alt="">
+              <p class="header-nav-character">Home</p>
+            </a>
+          </div>
+          <div class="nav-module">
+            <a href="{% url 'article:index'%}">
+              <img src="{% static 'index/img/article.png'%}" style="height:30px;" alt="">
+              <p class="header-nav-character">Article</p>
+            </a>
+          </div>
+          <div class="nav-module">
+            <a>
+              <img src="{% static 'index/img/discussion.png'%}" style="height:30px;" alt="">
+              <p class="header-nav-character">discussion</p>
+            </a>
+          </div>
+          <div class="nav-module">
+            <a>
+              <img src="{% static 'index/img/network.png'%}" style="height:30px;" alt="">
+              <p class="header-nav-character">Network</p>
+            </a>
+          </div>
+          <div class="nav-module">
+            <a href="{% url 'register:login'%}">
+              <img src="{% static 'index/img/human.png'%}" style="height:30px;" alt="">
+              <p class="header-nav-character">Sign In</p>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+    {% block content %}
+    {% endblock content %}
+    </main>
+    <div id="footer">
+    </div>
+  </div>
+</body>
+</html>

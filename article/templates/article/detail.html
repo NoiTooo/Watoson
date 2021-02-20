@@ -1,0 +1,12 @@
+{% extends 'article/base.html' %}
+
+{% block content %}
+
+    <h1>{{ objects.title }}</h1>
+    <p>{{ objects.updated_at }}</p>
+    {{ objects.text | safe }}<hr />
+    <br>
+
+    <a href="{% url 'article:index' %}">トップページに戻る</a>
+
+{% endblock %}

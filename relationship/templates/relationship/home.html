@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+フォロー：<a href="{% url 'relationship:follow' %}">{{ follows_count }}人</a>
+フォロワー数：<a href="{% url 'relationship:follower' %}">{{ followers_count }}人</a>
+<a href="{% url 'relationship:post_create' %}">記事を投稿する</a>
+{% for object in object_list %}
+  <p>投稿者：{{ object.author.account_name }}</p>
+  <p>投稿内容：{{ object.content }}</p>
+  <p>投稿日：{{ object.date_posted }}</p>
+  <a href="{% url 'relationship:post_detail' object.pk %}">詳細</a>
+  <hr>
+{% endfor %}
+</body>
+</html>

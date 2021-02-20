@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>UPLOAD IMAGE</title>
+</head>
+<body>
+<style>
+  img{
+  	width:150px;
+  	height:150px;
+	  object-fit:cover;
+	  border-radius:50%;
+	  border: 2px solid black;
+  }
+</style>
+<img src="{{ user.image.url }}" alt="{{ user.account_name }}">
+<p>現在の画像</p>
+
+<p>新しい画像を登録する（画像は縦横3:4のサイズで投稿ください）</p>
+
+<form method="POST" class="post-form" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="file" name="upload_img" accept="image/*" id="id_upload_img">
+  <p><button type="submit">次へ</button></p>
+</form>
+
+<form method="POST">
+  {% csrf_token %}
+  <button type="submit" name="back">前のページへ戻る</button>
+</form>
+
+</body>
+</html>

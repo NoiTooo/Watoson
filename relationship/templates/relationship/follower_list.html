@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+フォロワー数：{{ my_followers_count }}
+<hr>
+{% for follower in my_followers %}
+<p>{{ follower.user.account_name }}</p>
+
+  {% if follower.user in follower_lst%}
+    FOLLOW NOW
+  {% else %}
+    <form method="post">
+    {% csrf_token %}
+      <button action="#" name="follow" value="{{ follower.user.account_name }}" type="submit">フォロー</button>
+    </form>
+  {% endif %}
+{% endfor %}
+
+</body>
+</html>

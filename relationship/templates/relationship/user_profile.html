@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>UserPrifile</title>
+</head>
+<body>
+  <p>ユーザー名：{{ objects.account_name }}</p>
+  <p>職業：{{ objects.job }}</p>
+
+  {% if request_done %}
+  <p>リクエスト済み</p>
+  {% elif myself %}
+  {% else %}
+  <form method="POST">
+    {% csrf_token %}
+    <button type="submit">REQUEST</button>
+  </form>
+  {% endif %}
+</body>
+</html>
