@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'relationship.apps.RelationshipConfig',
     'article.apps.ArticleConfig',
     'index.apps.IndexConfig',
+    'seekforadvice.apps.SeekforadviceConfig',
 ]
 
 MIDDLEWARE = [
@@ -141,5 +142,6 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 SUMMERNOTE_CONFIG = {
     'summernote': {
         'height': '1000',
+        'width': '1000'
     },
 }

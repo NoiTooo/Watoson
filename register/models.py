@@ -65,7 +65,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(_('first name'), max_length=30, blank=True)
     last_name = models.CharField(_('last name'), max_length=150, blank=True)
     account_name = models.CharField(_('account name'), unique=True, blank=True, null=True, max_length=30)
-    image = models.ImageField(default='media/profile_pics/default.jpg', upload_to=user_img_upload_to, validators=[validate_is_picture])
+    image = models.ImageField(default='media/profile_pics/default.png', upload_to=user_img_upload_to, validators=[validate_is_picture])
     job = models.CharField(max_length=30, null=True, blank=True,)
     date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
 
@@ -135,7 +135,7 @@ def user_img_upload_to(instance, filename):
 class UploadImage(models.Model):
     """ アップロード画像 """
     user = models.OneToOneField(User, related_name='upload', on_delete=models.CASCADE)
-    upload_img = models.ImageField(default='media/profile_pics/default.jpg', upload_to=user_img_upload_to, validators=[validate_is_picture])
+    upload_img = models.ImageField(default='media/profile_pics/default.png', upload_to=user_img_upload_to, validators=[validate_is_picture])
 
     class Meta:
         verbose_name = "profile_image_upload"

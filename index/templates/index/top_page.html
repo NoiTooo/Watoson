@@ -7,30 +7,8 @@
 
 
 {% block content %}
-
-<div class="desktop-display">
-    {% if login.is_active == True %}
-  <div class="component-LeftRailLayout account">
-    <img class="account_img" src="{{ login.image.url }}" alt="">
-    <p class="account_name">{{ login.account_name }}</p>
-    <p class="account_description">account_descriptionaccount_description</p>
-    <a href="{% url 'register:user_detail' login.pk %}" class="btn-square">Profile</a>
+{% include 'index/desktop-display/desktop-display.html'%}
+  <div id="contents">
+    コンテンツ部分
   </div>
-    {% else %}
-  <div class="component-LeftRailLayout account">
-    <img class="account_img" src="" alt="">
-    <p class="account_name">WOMAN WOMAN</p>
-    <p class="account_description">account_descriptionaccount_description</p>
-    <a href="{% url 'register:login' %}" class="btn-square">Sign In</a>
-  </div>
-    {% endif %}
-
-  <div class="component-LeftRailLayout">
-  </div>
-  <div class="component-LeftRailLayout">
-  </div>
-</div>
-    <div id="contents">
-        コンテンツ部分
-    </div>
   {% endblock content %}

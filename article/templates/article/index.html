@@ -1,7 +1,8 @@
-{% extends 'article/base.html' %}
+{% extends 'index/base.html' %}
 
 {% block content %}
-
+{% include 'index/desktop-display/desktop-display.html' %}
+  <div id="contents">
     <h1>一覧</h1>
     <br>
     <a href="{% url 'article:add_form' %}">追加</a>
@@ -15,5 +16,6 @@
             </li>
         </ul>
     {% endfor %}
+  </div>
 
 {% endblock %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SOA_detail</title>
+</head>
+<body>
+{{ objects.author }}
+{{ objects.content }}
+<hr>
+{% for advice in advices %}
+<p>{{ advice.content }}</p>
+<p>from:{{ advice.author }}</p>
+{% endfor %}
+
+<form method="POST" action="">
+{% csrf_token %}
+{{form.content}}
+{{form.author}}
+<button type="submit" name="add">送信</button>
+</form>
+</body>
+</html>

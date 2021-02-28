@@ -1,0 +1,31 @@
+{% load static %}
+<div class="desktop-display">
+    {% if login.is_active == True %}
+  <div class="component-LeftRailLayout account">
+    <img class="account_img" src="{{ login.image.url }}" alt="">
+    <p class="account_name">{{ login.account_name }}</p>
+    <p class="account_description">account_descriptionaccount_description</p>
+    <a href="{% url 'register:user_detail' login.pk %}" class="btn-square">Profile</a>
+  </div>
+    {% else %}
+  <div class="component-LeftRailLayout account">
+    <img class="account_img" src="{% static 'index/img/default.png'%}">
+    <p class="account_name">WOMAN WOMAN</p>
+    <p class="account_description">account_descriptionaccount_description</p>
+    <a href="{% url 'register:login' %}" class="btn-square">Sign In</a>
+  </div>
+    {% endif %}
+
+  <div class="component-LeftRailLayout">
+    {% for user, date in intimate_dic_sorted %}
+    <img class="account_img" src="{{ user.image.url }}" alt="">
+
+    <p>{{ user }}｜登録日：{{ date|date:"Y年m月d日" }}</p>
+    {% if not user.is_active %}
+    hello
+    {% endif%}
+    {% endfor %}
+  </div>
+  <div class="component-LeftRailLayout">
+  </div>
+</div>

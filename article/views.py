@@ -1,18 +1,10 @@
-from django.contrib.auth.mixins import UserPassesTestMixin
+from django.http import Http404
+from django.shortcuts import redirect
 from django.views import generic
 from django.urls import reverse_lazy
 
 from .models import Article
 from .forms import ArticleForm
-
-
-class OnlyYouMixin(UserPassesTestMixin):
-    """スーパーユーザーだけユーザーページアクセスを許可する"""
-    raise_exception = True
-
-    def test_func(self):
-        user = self.request.user
-        return user.pk == user.is_superuser
 
 
 class Index(generic.ListView):
@@ -34,7 +26,18 @@ class Detail(generic.DetailView):
     context_object_name = 'objects'
 
 
-class AddForm(generic.CreateView):
+class Add_form(generic.CreateView):
     template_name = 'article/form.html'
     form_class = ArticleForm
     success_url = reverse_lazy('article:index')
+
+    def is_superuser(self):
+        if self.request.user.is_superuser:
+            pass
+        else:
+            raise Http404()
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data()
+        self.is_superuser()
+        return ctx

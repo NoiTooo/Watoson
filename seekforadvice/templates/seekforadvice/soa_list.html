@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for seek in objects_list %}
+    <img src="{{ seek.author.image.url }}">
+    {{ seek.author.account_name }}
+    {{ seek.content }}
+    {{ seek.date_posted|date:"Y年m月d日"}}
+    <a href="{% url 'seekforadvice:detail' seek.pk %}">詳細</a>
+{% endfor %}
+</body>
+</html>
